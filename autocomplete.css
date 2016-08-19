@@ -1,0 +1,52 @@
+[class*="ac-"] {
+   box-sizing: border-box;
+}
+
+.ac-Wrapper {
+   position: relative;
+}
+
+.ac-ListContainer {
+   background: #FAFAFA;
+   border: 1px solid #CACACA;
+   margin-top: 7px;
+   position: absolute;
+   top: 100%;
+   width: 300px;
+}
+
+.ac-Wrapper .ac-ListContainer .ac-List_Label {
+   color: #AAA;
+   float: right;
+   font-size: .7rem;
+   margin-right: 7px;
+   margin-top: 7px;
+   text-transform: uppercase;
+}
+
+.ac-Wrapper .ac-ListContainer .ac-List {
+   clear: both;
+   float: left;
+   margin: 0;
+   list-style: none;
+   padding: 0;
+   width: 100%;
+}
+
+.ac-Wrapper .ac-ListContainer .ac-List .ac-List_Item {
+   clear: both;
+   cursor: pointer;
+   float: left;
+   font-size: 1rem;
+   padding: 14px;
+   text-align: left;
+   width: 100%;
+}
+
+.ac-Wrapper .ac-ListContainer .ac-List .ac-List_Item.ac-List_ItemHighlight {
+   background: #EAEAEA;
+}
+
+.ac-Wrapper .ac-ListContainer .ac-List .ac-List_Item .ac-List_ItemSuggestion {
+   font-weight: bold;
+}
