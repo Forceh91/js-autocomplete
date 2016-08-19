@@ -2,11 +2,11 @@
    $.autocomplete = function($element, options) {
       var defaultOptions = {
          autocompleteList: [],
-         label: 'Suggestions'
+         label: 'Suggestions',
+         maxAutoCompleteSuggestions: 10
       };
 
       var searchedTerm = undefined;
-      var maxAutoCompleteSuggestions = 10;
       var preventClose = false;
       var settings = $.extend({}, defaultOptions, options);
       var $autoCompleteList = undefined;
@@ -112,6 +112,10 @@
 
             if (option.indexOf(searchedTerm) == 0 && option != searchedTerm) {
                relevantItems.push(option);
+
+               if (relevantItems.length == settings.maxAutoCompleteSuggestions) {
+                  break;
+               }
             }
          }
 
