@@ -95,7 +95,12 @@
 
             // add the highlight
             $(this).addClass('ac-List_ItemHighlight');
-         })
+         });
+
+         // allow the user to also mousedown on items to add them to the input
+         $autoCompleteList.find('.ac-List_Item').off('mousedown').on('mousedown', function(e) {
+            setInputValue($(this));
+         });
       }
 
       function getRelevantAutoCompleteItems() {
@@ -122,13 +127,18 @@
          return relevantItems;
       }
 
+      function setInputValue($target) {
+         // set the value
+         $element.val($target.attr('data-autocomplete-text'));
+      }
+
       function moveItemHighlight($currentlyHighlighted, $target) {
          // move the highlight
          $currentlyHighlighted.removeClass('ac-List_ItemHighlight');
          $target.addClass('ac-List_ItemHighlight');
 
          // set the value
-         $element.val($target.attr('data-autocomplete-text'));
+         setInputValue($target);
       }
 
       function keyboardControl(e) {
@@ -185,6 +195,7 @@
          // enter hit
          if (e.keyCode == 13) {
             hideAutoComplete();
+            return;
          }
 
          // make sure there are items in the list to auto complete
